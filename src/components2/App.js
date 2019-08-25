@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getOr } from 'lodash/fp'
 import axios from "axios";
-
 import './app.css';
 import Input from "./components2/Input/Input";
 import Ul from "./components2/Ul/Ul";
