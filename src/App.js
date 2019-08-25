@@ -1,42 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { getOr } from 'lodash/fp'
-import axios from "axios";
-
+import React, { useState } from 'react';
 import './app.css';
-import Input from "./components2/Input/Input";
-import Ul from "./components2/Ul/Ul";
 
-
+let fields = [
+    1,
+    2,
+    3,
+    4,
+    5,
+];
 function App() {
-    const [isDataLoaded , setIsDataLoaded] = useState(false);
-    const [value , setValue] = useState('');
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        if( isDataLoaded===false) {
-            axios.get('https://jsonplaceholder.typicode.com/users')
-                .then(function (response) {
-                    setData(response.data)
-                    setIsDataLoaded(true)
-                })
-        }
-    }, [isDataLoaded, data]); // Only re-run the effect if data changes
-
-    const handleChange = e => {
-        const val = getOr('', ['target', 'value'], e);
-        setValue(val)
-    };
-    const filteredItems = data.filter(item =>
-        getOr('', ['name'], item)
-            .toLowerCase()
-            .includes(value.toLowerCase()),
-    );
+    const [hoveredItem, setHoverItem] = useState(null);
+    const handleClick = fieldNumber =>{
+        fields = fields.filter(field => field !== fieldNumber)
+    }
+    const handleMouseEnter = (field) => {
+        setHoverItem(field)
+    }
+    const handleMouseLeave = () => {
+        setHoverItem(null)
+    }
     return (
         <div className="root">
-           <Input
-               value={value}
-               onChange={handleChange}
-           />
-          <Ul data={filteredItems}/>
+            {fields.map(field=>{
+                return(
+                    <div className="header"
+                        onMouseEnter={() => handleMouseEnter(field)}
+                        onMouseLeave={handleMouseLeave}
+                         key={field}
+                    >
+
+                        <div className="field">Item #{field}</div>
+                        <div
+                            onClick={() =>handleClick(field)}
+                            className="close"
+                            style={{
+                                visibility: hoveredItem === field ? 'visible' : 'hidden',
+                            }}
+                        >
+                            X
+                        </div>
+                    </div>
+                )
+            })}
+
         </div>
     );
 }
