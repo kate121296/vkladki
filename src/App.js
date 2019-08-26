@@ -1,42 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import { getOr } from 'lodash/fp'
-import axios from "axios";
-
+import React,{ useState } from 'react';
+import {getOr} from "lodash/fp";
+import Input from "./components/Input";
+import Card from "./components/Card";
 import './app.css';
-import Input from "./components2/Input/Input";
-import Ul from "./components2/Ul/Ul";
 
+const initialValues = {
+    url: '',
+    title: '',
+    description: '',
+    link: '',
+};
 
 function App() {
-    const [isDataLoaded , setIsDataLoaded] = useState(false);
-    const [value , setValue] = useState('');
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        if( isDataLoaded===false) {
-            axios.get('https://jsonplaceholder.typicode.com/users')
-                .then(function (response) {
-                    setData(response.data)
-                    setIsDataLoaded(true)
-                })
-        }
-    }, [isDataLoaded, data]); // Only re-run the effect if data changes
+    const [cards, setCards] = useState ([]);
+    const [values, setValues] = useState (initialValues);
+    const handleAddItem = () =>{
+        const newCards = [...cards];
+        newCards.push(values)
+        setCards(newCards);
+        setValues(initialValues)
 
-    const handleChange = e => {
-        const val = getOr('', ['target', 'value'], e);
-        setValue(val)
     };
-    const filteredItems = data.filter(item =>
-        getOr('', ['name'], item)
-            .toLowerCase()
-            .includes(value.toLowerCase()),
-    );
+    const handleUrlChange = e =>{
+        const value = getOr('', ['target', 'value'], e);
+        const newItems = {...values};
+        newItems.url = value;
+        setValues(newItems)
+    };
+    const handleTitleChange = e =>{
+        const value = getOr('', ['target', 'value'], e);
+        const newItems = {...values};
+        newItems.title = value;
+        setValues(newItems)
+    };
+    const handleTextChange = e => {
+        const value = getOr('', ['target', 'value'], e);
+        const newItems = {...values};
+        newItems.description = value;
+        setValues(newItems)
+    };
+    const handleLinkChange = e =>{
+        const value = getOr('', ['target', 'value'], e);
+        const newItems = {...values};
+        newItems.link = value;
+        setValues(newItems)
+    };
+
     return (
         <div className="root">
-           <Input
-               value={value}
-               onChange={handleChange}
-           />
-          <Ul data={filteredItems}/>
+            <Input
+                values={values}
+                onAddItem={handleAddItem}
+                onUrlChange={handleUrlChange}
+                onTitleChange={handleTitleChange}
+                onDescriptionChange={handleTextChange}
+                onLinkChange={handleLinkChange}
+            />
+            <Card
+                cards={cards}
+            />
         </div>
     );
 }
