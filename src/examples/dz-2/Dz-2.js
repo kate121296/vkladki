@@ -3,7 +3,6 @@ import Buttons from "./examples/dz-2/Buttons";
 import Div from "./examples/dz-2/Div";
 import './app.css';
 
-
 function App() {
     let buttons = [
         {
@@ -23,21 +22,16 @@ function App() {
     const [selectedButton, setSelectedButton] = useState ('');
     const handleClick = name => {
         setSelectedButton(name);
-    }
+    };
     return (
         <div className="root">
-
               <Buttons
                   handleClick={handleClick}
                   buttons={buttons}
               />
-
-
-
                 <Div
                     selectedButton={selectedButton}
                 />
-
         </div>
     );
 }
