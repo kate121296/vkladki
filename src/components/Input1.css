@@ -1,0 +1,19 @@
+.input-wrapper{
+    width: 50%;
+    margin: 40px 0px 0px 40px;
+}
+.input{
+    width: 100%;
+    border: 2px solid black;
+    padding: 10px;
+
+}
+.button{
+    width: 100%;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: lightpink;
+}
+.button:hover{
+    background-color: darkmagenta;
+}
