@@ -30,23 +30,6 @@ const bodyPartsTitles = [
 
     },
 ];
-const colors = [
-    {
-        name:'black',
-    },
-    {
-        name:'green',
-    },
-    {
-        name:'yellow',
-    },
-    {
-        name:'pink',
-    },
-    {
-        name:'blue',
-    },
-];
 const colorsParts = {
     head:'white',
     left_arm:'white',
@@ -58,7 +41,6 @@ const colorsParts = {
 
 function App() {
     const [selectedBodyTitle, setSelectedBodyTitle] = useState(null);
-   /* const [selectedColor, setSelectedColor] = useState(null);*/
     const [colorParts, setColorParts] = useState(colorsParts);
 
     const handleTitleClick = title => {
