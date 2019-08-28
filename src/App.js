@@ -1,10 +1,86 @@
-import React from 'react';
+import React, {useState} from 'react';
+
 import './App.css';
+import Select from "./Components/Select";
+import Bodyparts from "./Components/Bodyparts";
+
+const bodyPartsTitles = [
+    {
+        title: 'head',
+
+    },
+    {
+        title: 'left_arm',
+
+    },
+    {
+        title: 'right_arm',
+
+    },
+    {
+        title: 'body',
+
+    },
+    {
+        title: 'left_leg',
+
+    },
+    {
+        title: 'right_leg',
+
+    },
+];
+const colors = [
+    {
+        name:'black',
+    },
+    {
+        name:'green',
+    },
+    {
+        name:'yellow',
+    },
+    {
+        name:'pink',
+    },
+    {
+        name:'blue',
+    },
+];
+const colorsParts = {
+    head:'white',
+    left_arm:'white',
+    right_arm:'white',
+    body:'white',
+    left_leg:'white',
+    right_leg:'white',
+};
 
 function App() {
+    const [selectedBodyTitle, setSelectedBodyTitle] = useState(null);
+   /* const [selectedColor, setSelectedColor] = useState(null);*/
+    const [colorParts, setColorParts] = useState(colorsParts);
+
+    const handleTitleClick = title => {
+        setSelectedBodyTitle(title);
+    };
+    const handleColorChoose = e => {
+        const newColorParts = {...colorParts};
+        newColorParts[selectedBodyTitle] = e.target.value;
+        setColorParts(newColorParts)
+
+    };
+
     return (
         <div className="root">
-           hello Катруся :)
+           <Select
+               bodyPartsTitles={bodyPartsTitles}
+               onTitleClick={handleTitleClick}
+               onColorChoose={handleColorChoose}
+           />
+            <Bodyparts
+                colorParts={colorParts}
+            />
         </div>
     );
 }

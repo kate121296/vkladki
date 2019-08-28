@@ -1,0 +1,45 @@
+.head{
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+margin: 100px 0px 10px 460px;
+}
+.body-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.left-arm{
+    border: 2px solid black;
+    margin-right: 10px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+}
+.body{
+    border: 2px solid black;
+    width: 100px;
+    height: 200px;
+    border-radius: 10px;
+}
+.right-arm{
+    border: 2px solid black;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+}
+.left-leg{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 30px;
+    height: 100px ;
+    margin: 10px 10px 0px 0px;
+}
+.right-leg{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 30px;
+    height: 100px ;
+    margin: 10px 0px 0px 10px;
+}
