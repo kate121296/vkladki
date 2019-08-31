@@ -3,4 +3,13 @@
     width: 100vw;
     height: 100vh;
     background-color: bisque;
+    overflow-y: auto;
+}
+.picture{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img{
+    width: 100px;
+    height: 100px;
 }
