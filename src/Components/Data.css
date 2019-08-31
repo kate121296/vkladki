@@ -1,0 +1,16 @@
+.data-wrapper{
+    width: 25%;
+    height: 600px;
+    border: 2px solid darkseagreen;
+    padding: 10px;
+    background-color: white;
+}
+.text{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.img2{
+    width: 90%;
+    height: 200px;
+    border: 2px solid black;
+}
