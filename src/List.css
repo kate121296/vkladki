@@ -1,0 +1,39 @@
+.list-wrapper{
+    width: 40%;
+    margin-left: 50px;
+
+}
+.text{
+    border: 2px solid black;
+    font-size: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: cornflowerblue;
+}
+
+.ul{
+    width: 100%;
+    list-style: none;
+    border: 2px solid black;
+    margin-bottom: 10px;
+
+}
+.li:hover{
+    background-color: burlywood;
+}
+.li{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightcoral;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close{
+    width: 50px;
+
+    text-align: center;
+    margin: 0;
+}
