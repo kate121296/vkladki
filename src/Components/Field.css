@@ -1,0 +1,10 @@
+.field{
+    width: 50%;
+    height: 200px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 40px 0px 0px 40px;
+}
+.text{
+    font-size: 30px;
+}
