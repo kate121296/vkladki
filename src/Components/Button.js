@@ -5,14 +5,13 @@ function Button({
     onClick=()=>{}
 }) {
     return (
-        <div>
             <button
                 className="button"
                 onClick={onClick}
+
             >
                 Save
             </button>
-        </div>
     );
 }
 

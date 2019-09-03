@@ -1,8 +1,8 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import { getOr } from 'lodash/fp'
+
+import { getOr,isEmpty } from 'lodash/fp'
 import Input from "./Components/Input";
-import Button from "./Components/Button";
 import Result from "./Components/Result";
 
 
@@ -12,20 +12,16 @@ function App() {
         lastName:''
     });
     const [isChangesSaved, setIsChangesSaved] = useState(false);
-    const handleFirstNameChange = e => {
+    const handleChangeValue = e => {
         const value = getOr('', ['target', 'value'], e);
+        const name = getOr('', ['target', 'name'], e);
         const newNames = {...values};
-        newNames.firstName = value;
-        setValues(newNames)
-    };
-
-    const handleLastNameChange = e => {
-        const value = getOr('', ['target', 'value'], e);
-        const newNames = {...values};
-        newNames.lastName = value;
+        newNames[name] = value;
         setValues(newNames)
     };
     const handleClick = ()=>{
+        if (isEmpty(values.firstName)|| isEmpty(values.lastName)) return
+        if (values.firstName===' ' || values.lastName===' ') return
         setIsChangesSaved(true)
     };
     return (
@@ -36,16 +32,11 @@ function App() {
                     lastName={values.lastName}
                 />
             ) : (
-                <Fragment>
                     <Input
                         values={values}
-                        onFirstNameChange={handleFirstNameChange}
-                        onLastNameChange={handleLastNameChange}
-                    />
-                    <Button
+                        onChangeValues={handleChangeValue}
                         onClick={handleClick}
                     />
-                </Fragment>
             )}
         </div>
     );

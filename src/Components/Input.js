@@ -1,32 +1,38 @@
 import React from 'react';
 import { getOr } from 'lodash/fp'
 import './Input.css';
+import Button from "./Button";
 
 function Input({
    values=null,
-   onFirstNameChange=()=>{},
-   onLastNameChange=()=>{},
+   onChangeValues=()=>{},
+   onClick=()=>{},
 }) {
     const firstName = getOr('', ['firstName'], values);
     const lastName = getOr('', ['lastName'], values);
     return (
-        <div className="input-wrapper">
+        <form className="input-wrapper">
 
             <input
+                name="firstName"
                 className="input"
                 type="text"
                 placeholder="first name:"
                 value={firstName}
-                onChange={onFirstNameChange}
+                onChange={onChangeValues}
             />
             <input
+                name="lastName"
                 className="input"
                 type="text"
                 placeholder="last name:"
                 value={lastName}
-                onChange={onLastNameChange}
+                onChange={onChangeValues}
             />
-        </div>
+            <Button
+                onClick={onClick}
+            />
+        </form>
     );
 }
 
