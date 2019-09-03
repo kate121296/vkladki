@@ -45,6 +45,7 @@ function App() {
     const [index, setIndex] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [isGameCompleted, setIsGameCompleted] = useState(false);
+
     const handleIncreaseCorrectAnswers = ()=>{
         setCorrectAnswers(correctAnswers+1)
         console.log(correctAnswers)
