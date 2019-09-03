@@ -18,6 +18,7 @@ function App() {
         newNames.firstName = value;
         setValues(newNames)
     };
+
     const handleLastNameChange = e => {
         const value = getOr('', ['target', 'value'], e);
         const newNames = {...values};
