@@ -10,7 +10,9 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "uniqid": "^5.0.3"
+    "uniqid": "^5.0.3",
+    "react-firebase": "latest",
+    "firebase": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -32,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.4.1"
   }
 }
