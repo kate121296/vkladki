@@ -4,3 +4,16 @@
     height: 100vh;
     background-color: bisque;
 }
+
+ul {
+    margin: 50px;
+}
+
+.item {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.completed {
+    color: lightgreen;
+}
