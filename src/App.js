@@ -70,6 +70,7 @@ function App({
             </ul>
         </div>
     );
+
 }
 
 const mapFirebaseToProps = (props, ref) => ({
