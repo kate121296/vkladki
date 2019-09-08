@@ -11,14 +11,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 function Buttonn({
-                     onClick=()=>{}
-                 }) {
+    onClick=()=>{},
+    label=''
+}) {
     const classes = useStyles();
     return (
         <div>
             <Button variant="contained" color="secondary" className={classes.button}
             onClick={onClick}>
-                Show
+                {label}
             </Button>
         </div>
     );

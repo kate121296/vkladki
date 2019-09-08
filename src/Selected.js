@@ -17,43 +17,29 @@ const useStyles = makeStyles(theme => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+
 }));
 
 function Selected({
-                      onChooseSex=()=>{},
-                      onColorChoose=()=>{},
-                      values={}
-                  }) {
-
+    onChange=()=>{},
+    value={},
+    items=[],
+    label=''
+}) {
     const classes = useStyles();
-
     return (
         <div className={classes.root}>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-simple">Sex</InputLabel>
+                <InputLabel>{label}</InputLabel>
                 <Select
-                    value={values.sex}
-                    onChange={onChooseSex}
+                    value={value}
+                    onChange={onChange}
                 >
-                    <MenuItem value='Man'>Male</MenuItem>
-                    <MenuItem value='Female'>Female</MenuItem>
-                </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="age-simple">Body color</InputLabel>
-                <Select
-                    value={values.color}
-                    onChange={onColorChoose}
-                    inputProps={{
-                        name: 'age',
-                        id: 'age-simple',
-                    }}
-                >
-                    <MenuItem value='red'>red</MenuItem>
-                    <MenuItem value='blue'>blue</MenuItem>
-                    <MenuItem value='green'>green</MenuItem>
-                    <MenuItem value='yellow'>yellow</MenuItem>
-                    <MenuItem value='rose'>rose</MenuItem>
+                    {items.map(item=>{
+                        return(
+                            <MenuItem value={item} key={item}>{item}</MenuItem>
+                        )
+                    })}
                 </Select>
             </FormControl>
         </div>

@@ -26,12 +26,12 @@ bodyman:{
     height: 200,
     borderRadius: 10,
 },
-    bodyfemale:{
-        border: '2px solid black',
-        width: 100,
-        height: 200,
-        borderRadius: '50% 50%',
-    },
+bodyfemale:{
+    border: '2px solid black',
+    width: 100,
+    height: 200,
+    borderRadius: '50% 50%',
+},
 rightArm:{
     border: '2px solid black',
     marginLeft: 10,
@@ -53,16 +53,15 @@ rightLeg:{
     height: 100,
     marginLeft:20,
 },
-people:{
-        display: 'flex',
+people: {
+    display: 'flex',
     justifyContent: 'center',
 }
 }));
 function Human({
-                   colorBody={},
-                   isArmsVisible=false,
-                   isHumanVisible=false
-               }) {
+    values={},
+    isHumanVisible=false
+}) {
     const classes = useStyles();
     return (
         <div className={classes.people}>
@@ -71,34 +70,20 @@ function Human({
                     <div className={classes.head}/>
                     <div className={classes.bodyWrapper}>
                         <div className={classes.leftArm}/>
-                        <div className={classes.bodyman}
-                             style={{backgroundColor: colorBody.bodyman}}/>
+                        <div
+                            className={values.sex === "Male" ? classes.bodyman : classes.bodyfemale}
+                            style={{backgroundColor: values.color}}
+                        />
                         <div className={classes.rightArm}/>
                     </div>
-                    {isArmsVisible && (
+                    {values.isArmVisible && (
                         <div className={classes.bodyWrapper}>
-                            <div className={classes.rightLeg}/>
+                            <div className={classes.leftLeg}/>
                             <div className={classes.rightLeg}/>
                         </div>
                     )}
                 </div>
             )}
-
-            <div className={classes.female}>
-                <div className={classes.head}/>
-                <div className={classes.bodyWrapper}>
-                    <div className={classes.leftArm}/>
-                    <div className={classes.bodyfemale}
-    style={{backgroundColor: colorBody.bodyfemale}}/>
-                    <div className={classes.rightArm}/>
-                </div>
-                {isArmsVisible && (
-                <div className={classes.bodyWrapper}>
-                    <div className={classes.rightLeg}/>
-                    <div className={classes.rightLeg}/>
-                </div>
-                )}
-            </div>
         </div>
 
     );

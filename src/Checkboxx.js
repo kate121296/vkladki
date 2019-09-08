@@ -1,20 +1,19 @@
 import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
-
+import Typography from "@material-ui/core/Typography";
 
 function Checkboxx({
-                       onArmsVisible=()=>{}
-                   }) {
+    onChange=()=>{},
+    label='',
+    value=''
+}) {
     return (
         <div>
             <Checkbox
-               /* checked={state.checkedA}*/
-                onChange={onArmsVisible}
-                value="checkedA"
-                inputProps={{
-                    'aria-label': 'primary checkbox',
-                }}
+                onChange={onChange}
+                value={value}
             />
+            <Typography display="inline">{label}</Typography>
         </div>
     );
 }
