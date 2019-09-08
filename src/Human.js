@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
     head:{
     border: '2px solid black',
     borderRadius: '50%',
@@ -57,7 +57,7 @@ people: {
     display: 'flex',
     justifyContent: 'center',
 }
-}));
+});
 function Human({
     values={},
     isHumanVisible=false
@@ -66,7 +66,7 @@ function Human({
     return (
         <div className={classes.people}>
             {isHumanVisible && (
-                <div className={classes.man}>
+                <div>
                     <div className={classes.head}/>
                     <div className={classes.bodyWrapper}>
                         <div className={classes.leftArm}/>

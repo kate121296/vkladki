@@ -10,14 +10,14 @@ import Human from "./Human";
 const sexItems = [
     'Male',
     'Female',
-]
+];
 const colorItems = [
     'Blue',
     'Yellow',
     'Pink',
     'Green',
     'Orange',
-]
+];
 function App() {
     const { enqueueSnackbar } = useSnackbar();
     const [isHumanVisible, setIsHumanVisible] = useState(false);
@@ -30,12 +30,12 @@ function App() {
        const newValues={...values};
        newValues.sex=e.target.value;
        setValues(newValues)
-   }
+   };
     const handleChangeColor = e => {
         const newValues={...values};
         newValues.color=e.target.value;
         setValues(newValues)
-    }
+    };
     const handleClick = () => {
        if (values.sex==='' || values.color==='' ) {
            enqueueSnackbar('Please, select all the necessary data!',{
@@ -44,12 +44,12 @@ function App() {
            return
        }
         setIsHumanVisible(true)
-    }
+    };
     const handleChangeLegVisible = () => {
         const newValues={...values};
         newValues.isArmVisible=!newValues.isArmVisible;
         setValues(newValues)
-    }
+    };
 
     return (
         <div className="root">
